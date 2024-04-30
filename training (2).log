@@ -1,0 +1,25 @@
+INFO     | 2024-04-30 18:27:53 | autotrain.cli.run_llm:run:343 - Running LLM
+WARNING  | 2024-04-30 18:27:53 | autotrain.trainers.common:__init__:180 - Parameters supplied but not used: version, inference, train, func, deploy, backend
+INFO     | 2024-04-30 18:27:53 | autotrain.backend:create:300 - Starting local training...
+INFO     | 2024-04-30 18:27:53 | autotrain.commands:launch_command:349 - ['accelerate', 'launch', '--num_machines', '1', '--num_processes', '1', '--mixed_precision', 'no', '-m', 'autotrain.trainers.clm', '--training_config', 'Apple-Issue-Prompt/training_params.json']
+INFO     | 2024-04-30 18:27:53 | autotrain.commands:launch_command:350 - {'model': 'TinyPixel/Llama-2-7B-bf16-sharded', 'project_name': 'Apple-Issue-Prompt', 'data_path': 'Apple-Issue-Prompt/autotrain-data', 'train_split': 'train', 'valid_split': None, 'add_eos_token': False, 'block_size': -1, 'model_max_length': 1024, 'padding': None, 'trainer': 'sft', 'use_flash_attention_2': False, 'log': 'none', 'disable_gradient_checkpointing': False, 'logging_steps': -1, 'evaluation_strategy': 'epoch', 'save_total_limit': 1, 'auto_find_batch_size': False, 'mixed_precision': None, 'lr': 0.0002, 'epochs': 20, 'batch_size': 4, 'warmup_ratio': 0.1, 'gradient_accumulation': 1, 'optimizer': 'adamw_torch', 'scheduler': 'linear', 'weight_decay': 0.0, 'max_grad_norm': 1.0, 'seed': 42, 'chat_template': None, 'quantization': 'int4', 'target_modules': 'all-linear', 'merge_adapter': False, 'peft': True, 'lora_r': 16, 'lora_alpha': 32, 'lora_dropout': 0.05, 'model_ref': None, 'dpo_beta': 0.1, 'max_prompt_length': 128, 'max_completion_length': None, 'prompt_text_column': 'autotrain_prompt', 'text_column': 'autotrain_text', 'rejected_text_column': 'autotrain_rejected_text', 'push_to_hub': False, 'username': None, 'token': None}
+INFO     | 2024-04-30 18:28:02 | __main__:process_input_data:77 - loading dataset from disk
+INFO     | 2024-04-30 18:28:02 | __main__:process_input_data:118 - Train data: Dataset({
+    features: ['Issue', 'Description', 'autotrain_text'],
+    num_rows: 325
+})
+INFO     | 2024-04-30 18:28:02 | __main__:process_input_data:119 - Valid data: None
+INFO     | 2024-04-30 18:28:03 | __main__:train:206 - creating training arguments...
+INFO     | 2024-04-30 18:28:03 | __main__:train:220 - Logging steps: 16
+INFO     | 2024-04-30 18:28:03 | __main__:train:269 - loading model config...
+INFO     | 2024-04-30 18:28:03 | __main__:train:281 - loading model...
+INFO     | 2024-04-30 18:28:26 | __main__:train:349 - model dtype: torch.float16
+INFO     | 2024-04-30 18:28:26 | __main__:train:357 - preparing peft model...
+INFO     | 2024-04-30 18:28:26 | __main__:train:415 - Using block size 1024
+INFO     | 2024-04-30 18:28:26 | __main__:train:477 - creating trainer
+INFO     | 2024-04-30 18:28:27 | autotrain.trainers.common:on_train_begin:231 - Starting to train...
+INFO     | 2024-04-30 18:41:52 | autotrain.trainers.common:on_log:226 - {'loss': 1.0963, 'grad_norm': 0.5244436264038086, 'learning_rate': 0.0001925925925925926, 'epoch': 2.6666666666666665}
+{'loss': 1.0963, 'grad_norm': 0.5244436264038086, 'learning_rate': 0.0001925925925925926, 'epoch': 2.67}
+INFO     | 2024-04-30 18:55:20 | autotrain.trainers.common:on_log:226 - {'loss': 0.3441, 'grad_norm': 0.35128313302993774, 'learning_rate': 0.00016296296296296295, 'epoch': 5.333333333333333}
+{'loss': 0.3441, 'grad_norm': 0.35128313302993774, 'learning_rate': 0.00016296296296296295, 'epoch': 5.33}
+INFO     | 2024-04-30 19:08:43 | autotrain.trainers.common:on_log:226 - {'loss': 0.1777, 'grad_norm': 0.3857615888118744, 'learning_rate': 0.00013333333333333334, 'epoch': 8.0}
